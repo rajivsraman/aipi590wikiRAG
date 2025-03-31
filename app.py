@@ -2,9 +2,12 @@ import streamlit as st
 import wikipediaapi
 import faiss
 import numpy as np
+import os
 import torch
 from sentence_transformers import SentenceTransformer
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+os.environ["HUGGINGFACE_TOKEN"] = st.secrets["huggingface"]["token"]
 
 @st.cache_resource
 def load_models():
